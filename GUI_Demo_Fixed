@@ -1,0 +1,86 @@
+from tkinter import *
+
+root = Tk()
+root.title("musik")
+
+frame = Frame(root)
+frame.pack()
+
+Id= StringVar()
+def person():
+    #print("Hello")
+    entry =Id.get()
+    #Got The User Id in "entry" Perform ML
+
+    #Show output From here
+    #print(entry)
+    root2 = Tk()
+    root2.title("musik")
+
+    b_frame = Frame(root2,bg="skyblue")
+    b_frame.pack()
+
+    #show User Id At Top
+    L1 = Label(b_frame, text="Showing Result For "+entry, font=(" Comic Sans MS", 15, "bold", "underline"), relief="sunken")
+    L1.pack(side=TOP)
+
+    L2 = Label(b_frame, text="All Songs", font=(" Comic Sans MS", 15, "bold"), relief="sunken",width=40)
+    L2.pack(side=LEFT,expand=1)
+
+    L3 = Label(b_frame, text="Only for you", font=(" Comic Sans MS", 15, "bold"), relief="sunken",width=40)
+    L3.pack(side=RIGHT,expand=1)
+
+    L4 = Label(b_frame, text="Populer Songs", font=(" Comic Sans MS", 15, "bold"), relief="sunken", width=40)
+    L4.pack(side=RIGHT, expand=1)
+
+    #Output For perticuler User
+    #There'll be 3 lists under "root2"
+    #"Only For You","Populer Songs","All Songs"
+    Lst = Listbox(root2,width=60,bg='cyan',selectforeground='Yellow')
+    Lst.pack(side=LEFT, fill=Y,expand=0.5)
+    #Can be inserted in loop also
+    Lst.insert(1,"Hello")
+    Lst.insert(2,entry)
+    #root.destroy()
+    Lst1 = Listbox(root2,width=60,bg='cyan',selectforeground='Yellow')
+    Lst1.pack(side=RIGHT,expand=0.5, fill=Y)
+    Lst2 = Listbox(root2,width=60,bg='cyan',selectforeground='Yellow')
+    Lst2.pack(side=LEFT,fill=Y,expand=0.5)
+
+    root2.geometry("1300x660+120+120")
+    root2.configure(bg='skyblue')
+    root2.mainloop()
+
+
+entry_1=Entry(frame,textvariable= Id, bd=5, font= ("Times", 15, "bold"),bg='grey',fg='lime')
+entry_1.pack(side=TOP)
+
+button = Button(frame, text="Dig In",  font=("Times", 12, "bold"), bg= 'Blue' , command= person )
+button.pack( )
+
+Lb2 = Label(frame, text="All Songs", font=(" Comic Sans MS", 15, "bold"), relief="sunken", width=52)
+Lb2.pack(side=LEFT, expand=1)
+
+Lb3 = Label(frame, text="Populer Songs", font=(" Comic Sans MS", 15, "bold"), relief="sunken", width=52)
+Lb3.pack(expand=1)
+
+#output of First Page
+#All Songs and Hit Songs
+List1= Listbox(root,width=100,bg='cyan',selectforeground='Yellow')
+
+for q in range(500):
+    List1.insert(END,q)
+
+List1.pack(side= LEFT,expand=0.5,fill=Y)
+
+List2= Listbox(root,width=100,bg='cyan',selectforeground='Yellow')
+
+for q in range(500):
+    List2.insert(END,q)
+
+List2.pack(side=RIGHT,expand=0.5, fill=Y)
+
+root.geometry("1300x660+120+120")
+root.configure(bg='skyblue')
+frame.configure(bg='skyblue')
+root.mainloop()
