@@ -21,37 +21,40 @@ def person():
     root2.title("musik")
 
     #show User Id At Top
-    L1 = Label(root2, text=entry, font=(" Comic Sans MS", 15, "bold", "underline"), relief="sunken")
+    L1 = Label(root2, text="Showing Result For "+entry, font=(" Comic Sans MS", 15, "bold", "underline"), relief="sunken")
     L1.pack(side=TOP)
 
     #Output For perticuler User
     #There'll be 3 lists under "root2"
     #"Only For You","Populer Songs","All Songs"
-    Lst = Listbox(root2)
-    Lst.pack(side=LEFT, fill=Y)
+    Lst = Listbox(root2,width=60,bg='cyan',selectforeground='Yellow')
+    Lst.pack(side=LEFT, fill=Y,expand=0.5)
     #Can be inserted in loop also
     Lst.insert(1,"Hello")
     Lst.insert(2,entry)
-    
-    Lst1 = Listbox(root2)
-    Lst1.pack(side=LEFT, fill=Y)
-    
-    Lst2 = Listbox(root2)
-    Lst2.pack(fill=X)
-    
     root.destroy()
+    Lst1 = Listbox(root2,width=60,bg='cyan',selectforeground='Yellow')
+    Lst1.pack(side=RIGHT,expand=0.5, fill=Y)
+    Lst2 = Listbox(root2,width=60,bg='cyan',selectforeground='Yellow')
+    Lst2.pack(side=LEFT,fill=Y,expand=0.5)
+
+    root2.configure(bg='skyblue')
     root2.mainloop()
 
-button = Button(frame, text="Dig In",  font=("Times", 12, "bold"), bg= 'SkyBlue' , command= person )
+button = Button(frame, text="Dig In",  font=("Times", 12, "bold"), bg= 'Blue' , command= person )
 button.pack( side = RIGHT )
 
-entry_1=Entry(frame,textvariable= Id, bd=5, font= ("Times", 15, "bold") )
+entry_1=Entry(frame,textvariable= Id, bd=5, font= ("Times", 15, "bold"),bg='grey',fg='lime')
 entry_1.pack()
 
 #output of First Page
 #All Songs and Hit Songs
-List1= Listbox(root)
-List1.pack(side= LEFT,fill=Y)
-List2= Listbox(root)
-List2.pack(side=RIGHT, fill=Y)
+List1= Listbox(root,width=100,bg='cyan',selectforeground='Yellow')
+List1.pack(side= LEFT,expand=0.5,fill=Y)
+
+List2= Listbox(root,width=100,bg='cyan',selectforeground='Yellow')
+List2.pack(side=RIGHT,expand=0.5, fill=Y)
+
+root.geometry("1300x660+120+120")
+root.configure(bg='skyblue')
 root.mainloop()
